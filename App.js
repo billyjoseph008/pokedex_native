@@ -1,21 +1,49 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {
+  StyleSheet,
+  View,
+} from 'react-native';
+import {
+  NativeRouter,
+  Route,
+  Switch,
+} from "react-router-native";
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import Navbar from './src/components/Navbar'
+import PokemonList from './src/components/PokemonList'
+import Details from './src/components/Details'
+import './src/i18n';
 
-export default function App() {
+const App = () => {
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaProvider>
+      <View style={styles.container}>
+        <NativeRouter>
+          <Navbar style={styles.navbar} />
+          <View style={styles.main}>
+            <Switch>
+              <Route exact path="/" component={PokemonList} />
+              <Route path="/pokemon/:id" component={Details} />
+            </Switch>
+          </View>
+        </NativeRouter>
+      </View>
+    </SafeAreaProvider>
   );
-}
+};
+
+export default App;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+  },
+  navbar: {
+    flex: 1,
+  },
+  main: {
+    flex: 8,
   },
 });
+
