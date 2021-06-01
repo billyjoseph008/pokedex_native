@@ -1,10 +1,5 @@
 import React from "react"
-import { 
-    View, 
-    Text, 
-    StyleSheet, 
-    ScrollView 
-} from 'react-native';
+import { View, Text, StyleSheet, ScrollView} from 'react-native';
 import { useTranslation } from "react-i18next";
 import ProgressBarClassic from 'react-native-progress-bar-classic';
 
@@ -30,16 +25,15 @@ const StaticsPanel = (props) => {
                 }}
             />
             <ScrollView style={styles.scroll}>
-                {statisticsData.map(stat =>
-                    <View contentContainerStyle = {styles.stats}>
+                {statisticsData.map((stat, index) =>
+                    <View contentContainerStyle={styles.stats} key={index}>
                         <Text>{t(stat.details)}</Text>
-                        <ProgressBarClassic 
+                        <ProgressBarClassic
                             valueStyle={'default'}
                             progress={stat.stat} />
                     </View>
                 )}
             </ScrollView>
-  
         </View>
     )
 }
@@ -47,12 +41,12 @@ const StaticsPanel = (props) => {
 export default StaticsPanel;
 
 const styles = StyleSheet.create({
-    main:{
+    main: {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
     },
-    stats:{
+    stats: {
         marginVertical: 20,
         flexDirection: "column",
     },

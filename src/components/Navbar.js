@@ -10,12 +10,12 @@ import { useTranslation } from "react-i18next";
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const Navbar = () => {
-    
+
     const [t, i18n] = useTranslation();
     const [selectedValue, setSelectedValue] = useState("en");
     const location = useLocation();
 
-    
+
     useEffect(() => {
         i18n.changeLanguage(selectedValue)
     }, [selectedValue])

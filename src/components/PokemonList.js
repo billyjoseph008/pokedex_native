@@ -1,11 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-    ScrollView,
-    StyleSheet,
-    Text,
-    View,
-    FlatList
-} from 'react-native';
+import { ScrollView, StyleSheet, Text, View} from 'react-native';
 import { useTranslation } from "react-i18next";
 import { SearchBar } from 'react-native-elements';
 import { Button } from 'react-native-elements';
@@ -135,6 +129,7 @@ const styles = StyleSheet.create({
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
+        backgroundColor: "#ecf0f1"
     },
     searchBarContainer: {
         flex: 2,
@@ -160,8 +155,8 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "space-around",
         alignItems: "center",
-        height: 30,
-        backgroundColor: "#ecf0f1"
+        height: 40,
+        backgroundColor: "transparent"
     },
     searchBar: {
         flexDirection: "row",
@@ -169,9 +164,11 @@ const styles = StyleSheet.create({
         backgroundColor: "#ecf0f1"
     },
     button: {
-        width: 100,
-        height: 35,
-        marginHorizontal: 30,
+        width: 110,
+        height: 45,
+        marginHorizontal: 15,
+        marginVertical: 10,
+        fontSize: 5
     },
     paginationNumber: {
         marginHorizontal: 5,
